@@ -30,14 +30,19 @@ Graph::Graph(const std::string & filename)
 
 std::vector<int> Graph::distances()
 {
-    if(!adj_list.contains(vertex)) {
+    return distances(vertex);
+}
+
+std::vector<int> Graph::distances(int from)
+{
+    if(!adj_list.contains(from)) {
         return {};
     }
 
     std::queue<int> q;
     std::vector<int> dist(node_num, INT_MAX);
-    dist[vertex] = 0;
-    q.push(vertex);
+    dist[from] = 0;
+    q.push(from);
 
     while(!q.empty()) {
         int v = q.front();

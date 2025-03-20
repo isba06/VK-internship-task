@@ -11,6 +11,7 @@ struct Graph {
     Graph(const std::string & filename);
     Graph(int n_num, int e_num, int d_vertex, std::initializer_list<std::pair<const int, std::vector<int>>> init);
     std::vector<int> distances();
+    std::vector<int> distances(int from);
     friend std::ostream& operator<<(std::ostream& os, const Graph& graph);
 private:
     int node_num;
