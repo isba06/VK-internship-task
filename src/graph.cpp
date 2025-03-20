@@ -7,7 +7,7 @@ Graph::Graph(int n_num, int e_num, int d_vertex, std::initializer_list<std::pair
 
 Graph::Graph(const std::string & filename)
 {
-    std::ifstream file("graph.txt");
+    std::ifstream file(filename);
     if(!file.is_open()){
         throw std::runtime_error("Error: file is not exist: " + filename);;
     }
@@ -33,7 +33,7 @@ std::vector<int> Graph::distances()
     if(!adj_list.contains(vertex)) {
         return {};
     }
-    
+
     std::queue<int> q;
     std::vector<int> dist(node_num, INT_MAX);
     dist[vertex] = 0;
